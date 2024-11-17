@@ -1,0 +1,27 @@
+<div class="container mt-4">
+  <h1>ToDo List</h1>
+
+<button class="btn btn-primary mt-4" (click)="openCreateTodoModal()">Neu</button>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th class="col-10">Description</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let todo of todos">
+      <td>{{ todo.description }}</td>
+      <td>
+        <span *ngIf="todo.completed" class="text-success">&#10004;</span>
+        <span *ngIf="!todo.completed" class="text-danger">&#10008;</span>
+      </td>
+      <td>
+        <button *ngIf="!todo.completed" class="btn btn-sm btn-success" (click)="completeTodo(todo.id)">Complete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
